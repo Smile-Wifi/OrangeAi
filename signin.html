@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Sign in – ORANGE Ai</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#62677d;
+      --card:#1a1a1a;
+      --accent:#ff7a00;
+      --muted:#888;
+      --err:#ff4d4d;
+    }
+    *{box-sizing:border-box;margin:0;font-family:Inter,system-ui;}
+    body{background:var(--bg);color:#fff;display:flex;align-items:center;justify-content:center;min-height:100vh;padding:20px;}
+    .panel{background:var(--card);border-radius:14px;padding:32px 28px;width:100%;max-width:380px;box-shadow:0 10px 30px rgba(0,0,0,.4);}
+    h2{margin-bottom:24px;font-weight:700;font-size:22px;}
+    label{font-size:13px;color:var(--muted);}
+    input{width:100%;padding:10px 12px;margin:6px 0 16px;border:none;border-radius:8px;background:#222;color:#fff;font-size:14px;}
+    button{width:100%;padding:12px;border:none;border-radius:8px;background:var(--accent);color:#fff;font-weight:600;font-size:15px;cursor:pointer;}
+    .err{color:var(--err);font-size:13px;margin-top:-10px;margin-bottom:10px;display:none;}
+    .foot{text-align:center;margin-top:18px;font-size:13px;color:var(--muted);}
+    .foot a{color:var(--accent);text-decoration:none;}
+  </style>
+</head>
+<body>
+  <form class="panel" id="signInForm" action="dashboard.html" method="post">
+    <h2>Welcome back</h2>
+
+    <label>Email</label>
+    <input type="email" name="email" required autocomplete="email"/>
+
+    <label>Password</label>
+    <input type="password" name="pass" required autocomplete="current-password"/>
+
+    <div class="err" id="errMsg">Wrong email or password.</div>
+
+    <button type="submit">Sign in</button>
+
+    <div class="foot">
+      demo@orange.ai / <a href="">demo123</a>
+    </div>
+  </form>
+
+  <script>
+    /* ---- ultra-light front-end validation ---- */
+    document.getElementById('signInForm').addEventListener('submit', e => {
+      e.preventDefault();
+      const email = e.target.email.value.trim();
+      const pass  = e.target.pass.value.trim();
+
+      /* dummy check – replace with real fetch/ajax */
+      if(email==='demo@orange.ai' && pass==='demo123'){
+        location.href = e.target.action;   // go to dashboard / order form
+      }else{
+        document.getElementById('errMsg').style.display='block';
+      }
+    });
+  </script>
+</body>
+</html>

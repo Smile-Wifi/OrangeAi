@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Create your ad – ORANGE Ai</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#111;
+      --card:#1a1a1a;
+      --accent:#ff7a00;
+      --muted:#888;
+      --ok:#2ecc71;
+    }
+    *{box-sizing:border-box;margin:0;font-family:Inter,system-ui;}
+    body{background:var(--bg);color:#fff;line-height:1.4;padding:20px;}
+    h2{margin:30px 0 14px;font-size:20px;font-weight:600;}
+    .top{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;}
+    .top img{height:32px;border-radius:6px;}
+    .grid{display:grid;gap:18px;}
+    .card{background:var(--card);border-radius:12px;padding:18px;}
+    label{font-size:13px;color:var(--muted);display:block;margin-bottom:6px;}
+    input,select,textarea{width:100%;padding:10px 12px;border:none;border-radius:8px;background:#222;color:#fff;font-size:14px;}
+    textarea{resize:vertical;min-height:80px;}
+    .check-group{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px;}
+    .check-group label{background:#222;padding:8px 14px;border-radius:8px;cursor:pointer;font-size:14px;}
+    .check-group input{display:none;}
+    .check-group input:checked+label{background:var(--accent);}
+    .price-tag{text-align:right;font-size:18px;font-weight:700;color:var(--ok);}
+    button{padding:12px 24px;border:none;border-radius:10px;background:var(--accent);color:#fff;font-weight:600;font-size:16px;cursor:pointer;}
+    .summary{background:#222;border-radius:8px;padding:14px;margin-top:10px;font-size:14px;color:#ccc;}
+  </style>
+</head>
+<body>
+
+<div class="top">
+  <div style="display:flex;align-items:center;gap:10px">
+    <img src="logo.png" alt="logo">
+    <span style="font-weight:700">ORANGE Ai</span>
+  </div>
+  <a href="index.html" style="color:var(--muted);font-size:14px;">← Home</a>
+</div>
+
+<h2>1. Package</h2>
+<div class="grid">
+  <div class="card">
+    <label><input type="radio" name="pkg" value="starter" checked> Starter – ₱1,500 (15-30 s, 1 format, 1 revision)</label><br>
+    <label><input type="radio" name="pkg" value="pro"> Pro – ₱5,000 (≤60 s, script + voice, 3 revisions)</label><br>
+    <label><input type="radio" name="pkg" value="scale"> Scale – ₱10,000 (4 videos, priority, performance bundle)</label>
+  </div>
+</div>
+
+<h2>2. Video style</h2>
+<div class="card">
+  <div class="check-group">
+    <input type="radio" name="style" id="s1" value="u_gc" checked><label for="s1">UGC / testimonial</label>
+    <input type="radio" name="style" id="s2" value="motion"><label for="s2">Motion graphics</label>
+    <input type="radio" name="style" id="s3" value="cinematic"><label for="s3">Cinematic</label>
+    <input type="radio" name="style" id="s4" value="animated"><label for="s4">Animated captions</label>
+  </div>
+</div>
+
+<h2>3. Platform / aspect ratio</h2>
+<div class="card">
+  <div class="check-group">
+    <input type="checkbox" id="p1" value="9:16" checked><label for="p1">9:16 (Stories/Reels/TikTok)</label>
+    <input type="checkbox" id="p2" value="1:1"><label for="p2">1:1 (Instagram feed)</label>
+    <input type="checkbox" id="p3" value="16:9"><label for="p3">16:9 (YouTube)</label>
+  </div>
+</div>
+
+<h2>4. Voice-over language & accent</h2>
+<div class="card">
+  <select id="voice">
+    <option value="en-us">English – US</option>
+    <option value="en-gb">English – UK</option>
+    <option value="fil">Filipino</option>
+  </select>
+</div>
+
+<h2>5. Script & assets</h2>
+<div class="card">
+  <label>Script (paste here or let us write)</label>
+  <textarea id="script" placeholder="Optional: include your draft script, key messages, CTA..."></textarea>
+
+  <label style="margin-top:12px">Upload logo / images / footage (Google Drive or Dropbox link)</label>
+  <input type="url" id="assets" placeholder="https://...">
+</div>
+
+<h2>6. Call-to-action text</h2>
+<div class="card">
+  <input type="text" id="cta" placeholder="Shop now | Book today | Download app …">
+</div>
+
+<div class="card" style="margin-top:30px">
+  <div class="summary" id="summary"></div>
+  <div class="price-tag" id="total">Total: ₱1,500</div>
+  <button style="width:100%;margin-top:14px" id="submitBtn">Submit order</button>
+</div>
+
+<script>
+  /* ---- simple price map ---- */
+  const prices={starter:1500, pro:5000, scale:10000};
+  const radios=document.querySelectorAll('input[type=radio][name=pkg]');
+  const summaryEl=document.getElementById('summary');
+  const totalEl=document.getElementById('total');
+
+  function buildOrder(){
+    const order={
+      package : document.querySelector('input[name=pkg]:checked').value,
+      style   : document.querySelector('input[name=style]:checked').value,
+      ratios  : [...document.querySelectorAll('input[type=checkbox]:checked')].map(i=>i.value),
+      voice   : document.getElementById('voice').value,
+      script  : document.getElementById('script').value.trim(),
+      assets  : document.getElementById('assets').value.trim(),
+      cta     : document.getElementById('cta').value.trim()
+    };
+    summaryEl.textContent=JSON.stringify(order,null,2);
+    totalEl.textContent='Total: ₱'+prices[order.package].toLocaleString();
+    return order;
+  }
+  radios.forEach(r=>r.addEventListener('change',buildOrder));
+  document.querySelectorAll('input,select,textarea').forEach(el=>el.addEventListener('input',buildOrder));
+
+  /* ---- submit ---- */
+  document.getElementById('submitBtn').addEventListener('click',()=>{
+    const payload=buildOrder();
+    fetch('/api/order',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)})
+      .then(r=>r.ok? r.json() : Promise.reject(r))
+      .then(res=>alert('Order received! Reference: '+res.ref))
+      .catch(err=>alert('Sorry, please try again later.'));
+  });
+
+  buildOrder(); // first paint
+</script>
+</body>
+</html>
