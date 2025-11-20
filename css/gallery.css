@@ -1,0 +1,302 @@
+  :root{
+    --bg:#62677d;
+    --card:#ffffff;
+    --muted:#6b6f78;
+    --accent:#ff7a00;
+    --orange:#ff8a00;
+    --radius:14px;
+    --safe-bottom:80px;
+  }
+
+  html,body{height:100%;}
+
+  .app {
+    max-width:420px;
+    margin:0 auto;
+    padding:18px;
+    padding-bottom: calc(var(--safe-bottom) + 24px);
+  }
+
+  /* ------------------- HERO ------------------- */
+  .hero{
+    position:relative;
+    border-radius:18px;
+    overflow:hidden;
+    height:220px;
+    background-color:#f0e9e4;
+    background-image: linear-gradient(180deg, rgba(0,0,0,0.06), rgba(0,0,0,0.06)), var(--hero-image);
+    background-size:cover;
+    background-position:center;
+    box-shadow: 0 6px 18px rgba(6,12,28,0.12);
+  }
+
+  .hero .toprow{
+    position:absolute;
+    top:12px;
+    left:12px;
+    right:12px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+  }
+
+  .logo {
+    display:flex;
+    align-items:center;
+    gap:10px;
+    color:#fff;
+    font-weight:700;
+    text-shadow:0 2px 6px rgba(0,0,0,0.15);
+  }
+
+  .sign-btn{
+    background:rgba(255,255,255,0.95);
+    border-radius:20px;
+    padding:6px 12px;
+    font-weight:600;
+    font-size:14px;
+    color:#0b1220;
+    box-shadow:0 2px 6px rgba(2,6,15,0.12);
+    border:none;
+    cursor:pointer;
+  }
+
+  .hero .greeting{
+    position:absolute;
+    left:18px;
+    bottom:58px;
+    color:#ffffff;
+    text-shadow:0 6px 18px rgba(2,6,15,0.25);
+  }
+
+  .hero h1{
+    margin:0;
+    font-size:30px;
+    line-height:1;
+    color:#fff;
+    max-width:90%;
+  }
+
+  .hero p{
+    margin:8px 0 0 0;
+    color: rgba(255,255,255,0.96);
+    font-weight:600;
+    font-size:14px;
+    max-width:90%;
+  }
+
+  /* ------------------- ROYAL CARD ------------------- */
+  .royal-card{
+    margin-top:18px;
+    background:linear-gradient(180deg, #415469, #0061d8);
+    padding:18px;
+    border-radius:18px;
+    color:#fff;
+    display:flex;
+    gap:14px;
+    align-items:center;
+    box-shadow:0 10px 24px rgba(0,83,198,0.22);
+  }
+
+  .royal-card .icon{
+    height:58px;
+    width:58px;
+    border-radius:14px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:10px;
+  }
+
+  .royal-card .icon img{
+    width:100%;
+    height:100%;
+    object-fit:contain;
+  }
+
+  .royal-card .text h3{
+    margin:0;
+    font-size:17px;
+    font-weight:700;
+  }
+
+  .royal-card .text p{
+    margin:4px 0 0 0;
+    font-size:14px;
+    opacity:0.95;
+  }
+
+  .royal-card .cta{
+    background: #573838;
+    border-radius: 18px;
+    padding: 5px;
+    margin-left: auto;
+    font-weight: 600;
+    font-size: 13px;
+    opacity: 0.95;
+  }
+
+  /* ------------------- SERVICES ------------------- */
+  .section{
+    margin-top:22px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+  }
+  .section h4{margin:0;font-size:16px;font-weight:700}
+  .viewall{color:var(--muted);font-size:13px;font-weight:600;text-decoration:none}
+
+  .cards{
+    margin-top:12px;
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap:10px;
+  }
+
+  .card{
+    background:var(--card);
+    border-radius:12px;
+    overflow:hidden;
+    box-shadow:0 6px 14px rgba(15,22,32,0.06);
+    cursor:pointer;
+  }
+
+  .card .thumb{
+    height:96px;
+    background:#ffd9c7;
+    background-size:cover;
+    background-position:center;
+  }
+
+  .card .meta{
+    padding:8px 10px;
+    font-size:13px;
+    font-weight:700;
+    color:#111827;
+  }
+
+  /* ------------------- PROMO ------------------- */
+  .promo{
+    margin-top:14px;
+    background: rgba(0, 0, 0, 0.06);
+    border-radius:14px;
+    overflow:hidden;
+    box-shadow:0 8px 20px rgba(10,18,34,0.06);
+    height:120px;
+    display:flex;
+    align-items:center;
+    position:relative;
+  }
+
+  .promo iframe{
+    position:absolute;
+    inset:0;
+    width:100%;
+    object-fit:cover;
+    border:0;
+  }
+
+  /* ------------------- PRICING ------------------- */
+  .pricing{
+    display:flex;
+    gap:8px;
+    margin-top:12px;
+    flex-wrap:wrap;
+  }
+
+  .plan{
+    flex:1;
+    min-width:120px;
+    background:var(--card);
+    padding:12px;
+    border-radius:12px;
+    box-shadow:0 6px 14px rgba(15,22,32,0.04);
+  }
+
+  .plan h5{margin:0 0 8px 0}
+  .plan .price{font-weight:800;font-size:18px;color:var(--accent)}
+
+  /* ------------------- NAV ------------------- */
+  .bottom-nav{
+    position:fixed;
+    left:0;
+    right:0;
+    bottom:30px;
+    display:flex;
+    justify-content:center;
+    pointer-events:none;
+  }
+
+  .nav-inner{
+    pointer-events:auto;
+    width:420px;
+    max-width:420px;
+    background:linear-gradient(180deg, rgba(255,255,255,0.98), rgba(250,250,252,0.98));
+    border-radius:14px;
+    padding:8px 12px;
+    display:flex;
+    justify-content:space-between;
+    box-shadow:0 12px 30px rgba(12,18,40,0.08);
+    margin:0 12px;
+  }
+
+  .nav-item{
+    flex:1;
+    text-align:center;
+    font-size:12px;
+    color:#6b7280;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:6px;
+    padding:6px 4px;
+  }
+
+  .nav-item.active{ color:var(--accent); font-weight:700;}
+  .nav-item svg{width:22px;height:22px;display:block;opacity:0.95}
+
+  
+.section h5 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 700;
+    color: #f5f2ee;
+	
+/* GALLERY SLIDER */
+.gallery-section{
+  margin-top:20px;
+  padding:0 16px;
+}
+
+.gallery-title{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:10px;
+}
+
+.gallery-slider{
+  display:flex;
+  gap:14px;
+  overflow-x:auto;
+  scroll-behavior:smooth;
+  padding-bottom:10px;
+}
+
+.gallery-slider::-webkit-scrollbar{
+  display:none;
+}
+
+.gallery-item{
+  flex:0 0 240px;
+  height:150px;
+  border-radius:14px;
+  background-size:cover;
+  background-position:center;
+  background-color:#222;
+}
+
+/* Boost smooth dragging on mobile */
+.gallery-slider{
+  -webkit-overflow-scrolling: touch;
+}
