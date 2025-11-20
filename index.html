@@ -6,15 +6,16 @@
 <title>ORANGE Ai — Commercial Video Ads</title>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
 <style>
   :root{
-    --bg:#f6f7fb;
+    --bg:#62677d;
     --card:#ffffff;
     --muted:#6b6f78;
-    --accent:#ff7a00; /* main orange */
+    --accent:#ff7a00;
     --orange:#ff8a00;
     --radius:14px;
-    --safe-bottom:80px; /* space for bottom nav */
+    --safe-bottom:80px;
   }
 
   html,body{height:100%;}
@@ -27,7 +28,6 @@
     color:#0b1220;
   }
 
-  /* Container and card widths tuned for mobile */
   .app {
     max-width:420px;
     margin:0 auto;
@@ -35,7 +35,7 @@
     padding-bottom: calc(var(--safe-bottom) + 24px);
   }
 
-  /* Hero / header */
+  /* ------------------- HERO ------------------- */
   .hero{
     position:relative;
     border-radius:18px;
@@ -48,7 +48,6 @@
     box-shadow: 0 6px 18px rgba(6,12,28,0.12);
   }
 
-  /* --hero-image is set inline on .app for convenience */
   .hero .toprow{
     position:absolute;
     top:12px;
@@ -58,6 +57,7 @@
     justify-content:space-between;
     align-items:center;
   }
+
   .logo {
     display:flex;
     align-items:center;
@@ -66,6 +66,7 @@
     font-weight:700;
     text-shadow:0 2px 6px rgba(0,0,0,0.15);
   }
+
   .sign-btn{
     background:rgba(255,255,255,0.95);
     border-radius:20px;
@@ -74,79 +75,102 @@
     font-size:14px;
     color:#0b1220;
     box-shadow:0 2px 6px rgba(2,6,15,0.12);
+    border:none;
+    cursor:pointer;
   }
 
   .hero .greeting{
     position:absolute;
     left:18px;
-    bottom:68px;
+    bottom:58px;
     color:#ffffff;
     text-shadow:0 6px 18px rgba(2,6,15,0.25);
   }
+
   .hero h1{
     margin:0;
     font-size:30px;
     line-height:1;
     color:#fff;
+    max-width:90%;
   }
+
   .hero p{
     margin:8px 0 0 0;
     color: rgba(255,255,255,0.96);
     font-weight:600;
     font-size:14px;
+    max-width:90%;
   }
 
-  /* Loyalty / promo card */
-  .loyalty{
-    margin-top:-36px; /* overlapping effect */
-    background:linear-gradient(90deg,var(--accent),var(--orange));
+  /* ------------------- ROYAL CARD ------------------- */
+  .royal-card{
+    margin-top:18px;
+    background:linear-gradient(180deg, #415469, #0061d8);
+    padding:18px;
+    border-radius:18px;
     color:#fff;
-    padding:16px;
-    border-radius:14px;
     display:flex;
-    gap:12px;
+    gap:14px;
     align-items:center;
-    box-shadow:0 10px 20px rgba(255,122,0,0.12);
+    box-shadow:0 10px 24px rgba(0,83,198,0.22);
   }
-  .loyalty .badge{
-    min-width:56px;
-    min-height:56px;
-    border-radius:10px;
-    background:rgba(255,255,255,0.12);
+
+  .royal-card .icon{
+    height:58px;
+    width:58px;
+    border-radius:14px;
     display:flex;
     align-items:center;
     justify-content:center;
-    font-weight:700;
-    font-size:13px;
+    padding:10px;
   }
-  .loyalty .text{
-    flex:1;
-  }
-  .loyalty .text h3{
-    margin:0;
-    font-size:16px;
-    font-weight:700;
-  }
-  .loyalty .text p{margin:6px 0 0 0;font-size:13px;opacity:0.95}
-  .loyalty .cta{font-weight:700;font-size:13px;opacity:0.95}
 
-  /* Section title */
+  .royal-card .icon img{
+    width:100%;
+    height:100%;
+    object-fit:contain;
+  }
+
+  .royal-card .text h3{
+    margin:0;
+    font-size:17px;
+    font-weight:700;
+  }
+
+  .royal-card .text p{
+    margin:4px 0 0 0;
+    font-size:14px;
+    opacity:0.95;
+  }
+
+  .royal-card .cta{
+    background: #573838;
+    border-radius: 18px;
+    padding: 5px;
+    margin-left: auto;
+    font-weight: 600;
+    font-size: 13px;
+    opacity: 0.95;
+  }
+
+  /* ------------------- SERVICES ------------------- */
   .section{
-    margin-top:18px;
+    margin-top:22px;
     display:flex;
     justify-content:space-between;
     align-items:center;
   }
-  .section h4{margin:0;font-size:16px}
-  .viewall{color:var(--muted);font-size:13px;font-weight:600}
+  .section h4{margin:0;font-size:16px;font-weight:700}
+  .viewall{color:var(--muted);font-size:13px;font-weight:600;text-decoration:none}
 
-  /* Video cards */
   .cards{
     margin-top:12px;
     display:grid;
     grid-template-columns: 1fr 1fr;
     gap:10px;
   }
+
   .card{
     background:var(--card);
     border-radius:12px;
@@ -154,12 +178,14 @@
     box-shadow:0 6px 14px rgba(15,22,32,0.06);
     cursor:pointer;
   }
+
   .card .thumb{
     height:96px;
     background:#ffd9c7;
     background-size:cover;
     background-position:center;
   }
+
   .card .meta{
     padding:8px 10px;
     font-size:13px;
@@ -167,9 +193,9 @@
     color:#111827;
   }
 
-  /* bigger horizontal promo card */
+  /* ------------------- PROMO ------------------- */
   .promo{
-    margin-top:12px;
+    margin-top:14px;
     background:var(--card);
     border-radius:14px;
     overflow:hidden;
@@ -177,25 +203,38 @@
     height:120px;
     display:flex;
     align-items:center;
-  }
-  .promo .map{
-    flex:1;
-    height:100%;
-    background:#fff4ec;
-    background-size:cover;
-    background-position:center;
-    padding:12px;
+    position:relative;
   }
 
-  /* Pricing row */
-  .pricing{
-    display:flex;gap:8px;margin-top:12px;flex-wrap:wrap
+  .promo iframe{
+    position:absolute;
+    inset:0;
+    width:100%;
+    object-fit:cover;
+    border:0;
   }
-  .plan{flex:1;min-width:120px;background:var(--card);padding:12px;border-radius:12px;box-shadow:0 6px 14px rgba(15,22,32,0.04)}
+
+  /* ------------------- PRICING ------------------- */
+  .pricing{
+    display:flex;
+    gap:8px;
+    margin-top:12px;
+    flex-wrap:wrap;
+  }
+
+  .plan{
+    flex:1;
+    min-width:120px;
+    background:var(--card);
+    padding:12px;
+    border-radius:12px;
+    box-shadow:0 6px 14px rgba(15,22,32,0.04);
+  }
+
   .plan h5{margin:0 0 8px 0}
   .plan .price{font-weight:800;font-size:18px;color:var(--accent)}
 
-  /* Bottom navigation */
+  /* ------------------- NAV ------------------- */
   .bottom-nav{
     position:fixed;
     left:0;
@@ -203,8 +242,9 @@
     bottom:12px;
     display:flex;
     justify-content:center;
-    pointer-events:none; /* container non clickable except nav */
+    pointer-events:none;
   }
+
   .nav-inner{
     pointer-events:auto;
     width:420px;
@@ -217,6 +257,7 @@
     box-shadow:0 12px 30px rgba(12,18,40,0.08);
     margin:0 12px;
   }
+
   .nav-item{
     flex:1;
     text-align:center;
@@ -228,36 +269,26 @@
     gap:6px;
     padding:6px 4px;
   }
+
   .nav-item.active{ color:var(--accent); font-weight:700;}
   .nav-item svg{width:22px;height:22px;display:block;opacity:0.95}
 
-  /* Small screens */
-  @media (min-width:420px){
-    .app{padding-left:20px;padding-right:20px}
-  }
 </style>
 </head>
+
+
 <body>
 
-<!-- Set hero background image via inline style for easy swapping -->
 <div class="app" style="--hero-image: url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=60');">
-  <header class="hero" role="banner" aria-label="Hero header with creative marketing image">
+
+  <!-- HERO -->
+  <header class="hero">
     <div class="toprow">
-      <div class="logo" aria-hidden="true">
-        <!-- ORANGE Ai logo: rounded square + play/neural mark -->
-        <svg width="34" height="34" viewBox="0 0 48 48" fill="none" style="filter:drop-shadow(0 2px 6px rgba(0,0,0,0.12))">
-          <defs>
-            <linearGradient id="og" x1="0" x2="1">
-              <stop offset="0" stop-color="#ff9a3c"/>
-              <stop offset="1" stop-color="#ff6a00"/>
-            </linearGradient>
-          </defs>
-          <rect x="2" y="2" width="44" height="44" rx="10" fill="url(#og)" opacity="0.98"></rect>
-          <path d="M18 15 L30 24 L18 33 V15 Z" fill="#fff" opacity="0.98"></path>
-        </svg>
+      <div class="logo">
+        <img src="logo.png" width="34" height="34" style="border-radius:8px;">
         <span style="font-size:14px;color:rgba(255,255,255,0.95);font-weight:700">ORANGE Ai</span>
       </div>
-      <button class="sign-btn" aria-label="Sign in">Sign in</button>
+      <button class="sign-btn">Sign in</button>
     </div>
 
     <div class="greeting">
@@ -266,47 +297,53 @@
     </div>
   </header>
 
-  <div class="loyalty" role="region" aria-label="Promo card">
-    <div class="badge">OR</div>
-    <div class="text">
-      <h3>Launch Campaigns That Convert</h3>
-      <p>Sales-first commercial videos: hooks, pacing, and CTAs tuned for ROI.</p>
+  <!-- ROYALTY CARD -->
+  <div class="royal-card">
+    <div class="icon">
+      <img src="logo.png" alt="Royal Badge">
     </div>
-    <div class="cta">Request Free Sample →</div>
+
+    <div class="text">
+      <h3>Orange Ai</h3>
+      <p>Explore the Ai Trending Ads</p>
+    </div>
+
+    <div class="cta">Get started </div>
   </div>
 
+  <!-- SERVICES -->
   <div class="section">
     <h4>Our Services</h4>
     <a class="viewall" href="#services">See all ›</a>
   </div>
 
-  <div class="cards" aria-live="polite">
-    <div class="card" role="button" tabindex="0" aria-label="Product Ad">
+  <div class="cards">
+    <div class="card">
       <div class="thumb" style="background-image: url('https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=800&q=60');"></div>
       <div class="meta">Product Launch Ads — 30s</div>
     </div>
 
-    <div class="card" role="button" tabindex="0" aria-label="Local Business Ad">
+    <div class="card">
       <div class="thumb" style="background-image: url('https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=800&q=60');"></div>
       <div class="meta">Local Business • Promo</div>
     </div>
   </div>
 
-  <div class="promo" role="region" aria-label="Why ORANGE Ai">
-    <div class="map" style="background-image:url('https://images.unsplash.com/photo-1496307042754-b4aa456c4a2d?auto=format&fit=crop&w=1200&q=60')">
-      <div style="padding:12px">
-        <h4 style="margin:0 0 6px 0">Why choose ORANGE Ai?</h4>
-        <p style="margin:0;color:var(--muted)">We combine ad psychology with AI to create videos that increase click-through and lower acquisition costs.</p>
-      </div>
-    </div>
+  <!-- PROMO (VIMEO VIDEO, NO TEXT) -->
+  <div class="promo">
+    <iframe 
+      src="https://player.vimeo.com/video/1138918615?background=1&autoplay=1&loop=1&muted=1"
+      allow="autoplay; fullscreen"
+    ></iframe>
   </div>
 
+  <!-- PRICING -->
   <div class="section" style="margin-top:12px">
     <h4>Pricing</h4>
     <a class="viewall" href="#pricing">Contact sales ›</a>
   </div>
 
-  <div class="pricing" aria-label="Pricing plans">
+  <div class="pricing">
     <div class="plan">
       <h5>Starter</h5>
       <div class="price">P79</div>
@@ -324,35 +361,39 @@
     </div>
   </div>
 
+  <!-- SAMPLE FORM -->
   <div class="section" style="margin-top:14px">
     <h4>Request a Free 10s Sample</h4>
     <a class="viewall" href="#contact">Get sample ›</a>
   </div>
 
-  <form id="sampleForm" action="#" onsubmit="event.preventDefault();handleSample()" style="margin-top:12px;display:grid;grid-template-columns:1fr 120px;gap:8px">
-    <input id="name" placeholder="Your name" required style="padding:10px;border-radius:10px;border:1px solid rgba(0,0,0,0.06);background:var(--card)" />
-    <button type="submit" class="sign-btn" style="width:100%;">Request Sample</button>
-    <input id="email" type="email" placeholder="Email" required style="padding:10px;border-radius:10px;border:1px solid rgba(0,0,0,0.06);background:var(--card);grid-column:1/3" />
-    <input id="url" placeholder="Website / Product URL" style="padding:10px;border-radius:10px;border:1px solid rgba(0,0,0,0.06);background:var(--card);grid-column:1/3" />
+  <form id="sampleForm" onsubmit="event.preventDefault();handleSample()" style="margin-top:12px;display:grid;grid-template-columns:1fr 120px;gap:8px">
+    <input id="name" placeholder="Your name" required />
+    <button type="submit" class="sign-btn">Request Sample</button>
+    <input id="email" type="email" placeholder="Email" required style="grid-column:1/3" />
+    <input id="url" placeholder="Website / Product URL" style="grid-column:1/3" />
   </form>
 
 </div>
 
-<!-- Bottom navigation -->
-<nav class="bottom-nav" aria-label="Main navigation">
-  <div class="nav-inner" role="navigation">
-    <div class="nav-item active" aria-current="page">
-      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 11.5L12 4l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1V11.5z" fill="currentColor"/></svg>
+<!-- NAV -->
+<nav class="bottom-nav">
+  <div class="nav-inner">
+    <div class="nav-item active">
+      <svg viewBox="0 0 24 24"><path d="M3 11.5L12 4l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1V11.5z" fill="currentColor"/></svg>
       <div>Home</div>
     </div>
+
     <div class="nav-item">
       <svg viewBox="0 0 24 24"><path d="M6 2h12v4H6zM3 8h18v11a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V8z" fill="currentColor"/></svg>
       <div>Services</div>
     </div>
+
     <div class="nav-item">
       <svg viewBox="0 0 24 24"><path d="M12 5a7 7 0 1 0 0 14 7 7 0 0 0 0-14zM6 20a6 6 0 0 1 12 0H6z" fill="currentColor"/></svg>
       <div>Cases</div>
     </div>
+
     <div class="nav-item">
       <svg viewBox="0 0 24 24"><path d="M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10zM4 20a8 8 0 0 1 16 0H4z" fill="currentColor"/></svg>
       <div>Contact</div>
@@ -362,11 +403,9 @@
 
 <script>
   function handleSample(){
-    const name = document.getElementById('name').value || 'No name';
-    const email = document.getElementById('email').value || 'No email';
-    const url = document.getElementById('url').value || 'No url';
-    alert('Thanks, ' + name + '!\nWe received your sample request. We will email ' + email + '.');
-    // Here you would send data to your server / CRM
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    alert('Thanks, ' + name + '! We received your request and will email ' + email + '.');
     document.getElementById('sampleForm').reset();
   }
 </script>
