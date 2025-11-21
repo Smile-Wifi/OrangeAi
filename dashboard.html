@@ -3,24 +3,45 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>Create your ad – ORANGE Ai</title>
+  <title>Dashboard – Build Your Ad | ORANGE Ai</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- =========  SLIDESHOW STYLES  ========= -->
   <style>
     :root{
-      --bg:#111;
       --card:#1a1a1a;
       --accent:#ff7a00;
       --muted:#888;
       --ok:#2ecc71;
     }
     *{box-sizing:border-box;margin:0;font-family:Inter,system-ui;}
-    body{background:var(--bg);color:#fff;line-height:1.4;padding:20px;}
-    h2{margin:30px 0 14px;font-size:20px;font-weight:600;}
-    .top{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;}
-    .top img{height:32px;border-radius:6px;}
-    .grid{display:grid;gap:18px;}
-    .card{background:var(--card);border-radius:12px;padding:18px;}
-    label{font-size:13px;color:var(--muted);display:block;margin-bottom:6px;}
+    body{background:var(--bg);color:#62677d;line-height:1.4;padding:20px;}
+
+    /* ---- hero slideshow ---- */
+    .hero{position:relative;height:260px;overflow:hidden;border-radius:14px;margin-bottom:20px;}
+    .slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity 1.2s ease;}
+    .slide.active{opacity:1;}
+    .hero-content{position:relative;z-index:2;padding:28px;}
+    .toprow{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;}
+    .logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:18px;}
+    .logo img{height:32px;border-radius:6px;}
+    .greeting h1{font-size:28px;font-weight:700;margin-bottom:6px;}
+    .greeting p{font-size:15px;color:rgba(255,255,255,.85);}
+    .sign-btn{font-size:14px;color:rgba(255,255,255,.9);text-decoration:none;padding:6px 12px;border:1px solid rgba(255,255,255,.25);border-radius:8px;}
+    .sign-btn:hover{background:rgba(255,255,255,.1);}
+	
+	.hero{position:relative;overflow:hidden;border-radius:14px;margin-bottom:20px;height:260px;}
+.slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity 1.2s ease;}
+.slide.active{opacity:1;}
+.hero-content{background: linear-gradient(rgba(30, 58, 138, .7), rgba(30, 58, 138, .7));position:relative;z-index:2;height:100%;display:flex;flex-direction:column;justify-content:space-between;padding:28px;}
+
+    /* ---- dashboard cards same as before ---- */
+    .dash-grid{display:grid;gap:18px;}
+    .dash-card{background:var(--card);border-radius:12px;padding:18px;}
+    h5{font-size:20px;font-weight:600;margin:30px 0 14px;}
+    label{font-size:14px;color:#f3eeee;display:block;margin-bottom:6px;}
     input,select,textarea{width:100%;padding:10px 12px;border:none;border-radius:8px;background:#222;color:#fff;font-size:14px;}
     textarea{resize:vertical;min-height:80px;}
     .check-group{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px;}
@@ -28,111 +49,140 @@
     .check-group input{display:none;}
     .check-group input:checked+label{background:var(--accent);}
     .price-tag{text-align:right;font-size:18px;font-weight:700;color:var(--ok);}
-    button{padding:12px 24px;border:none;border-radius:10px;background:var(--accent);color:#fff;font-weight:600;font-size:16px;cursor:pointer;}
-    .summary{background:#222;border-radius:8px;padding:14px;margin-top:10px;font-size:14px;color:#ccc;}
+    .summary{background:#222;border-radius:8px;padding:14px;margin-top:10px;font-size:14px;color:#ccc;white-space:pre-wrap;}
+    button{width:100%;padding:12px;border:none;border-radius:10px;background:var(--accent);color:#fff;font-weight:600;font-size:16px;cursor:pointer;}
   </style>
 </head>
+
 <body>
+<div class="app">
+<header class="hero">
+  <!-- 1.  sliding backgrounds -->
+  <div class="slide active" style="background-image:url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=60');"></div>
+  <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=1200&q=60');"></div>
+  <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=1200&q=60');"></div>
 
-<div class="top">
-  <div style="display:flex;align-items:center;gap:10px">
-    <img src="logo.png" alt="logo">
-    <span style="font-weight:700">ORANGE Ai</span>
+  <!-- 2.  text overlay (kept exactly as you had it) -->
+  <div class="hero-content">
+    <div class="toprow">
+      <div class="logo">
+        <img src="logo.png" width="34" height="34" style="border-radius:8px;">
+        <span style="font-size:14px;color:rgba(255,255,255,.95);font-weight:700">ORANGE Ai</span>
+      </div>
+      <a href="index.html" class="sign-btn">← Home</a>
+    </div>
+
+    <div class="greeting">
+      <h1>Affordable video Ads</h1>
+      <p>That perform like agency-level productions.</p>
+    </div>
   </div>
-  <a href="index.html" style="color:var(--muted);font-size:14px;">← Home</a>
-</div>
+</header>
 
-<h2>1. Package</h2>
-<div class="grid">
-  <div class="card">
-    <label><input type="radio" name="pkg" value="starter" checked> Starter – ₱1,500 (15-30 s, 1 format, 1 revision)</label><br>
-    <label><input type="radio" name="pkg" value="pro"> Pro – ₱5,000 (≤60 s, script + voice, 3 revisions)</label><br>
-    <label><input type="radio" name="pkg" value="scale"> Scale – ₱10,000 (4 videos, priority, performance bundle)</label>
-  </div>
-</div>
+  <!-- =========  SAME DASHBOARD FORM  ========= -->
+  <form id="orderForm" action="https://formsubmit.co/awdtph@gmail.com" method="POST">
+    <input type="hidden" name="_subject" value="New ORANGE Ai Ad Order">
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_next" value="https://yourdomain.com/thanks.html">
 
-<h2>2. Video style</h2>
-<div class="card">
-  <div class="check-group">
-    <input type="radio" name="style" id="s1" value="u_gc" checked><label for="s1">UGC / testimonial</label>
-    <input type="radio" name="style" id="s2" value="motion"><label for="s2">Motion graphics</label>
-    <input type="radio" name="style" id="s3" value="cinematic"><label for="s3">Cinematic</label>
-    <input type="radio" name="style" id="s4" value="animated"><label for="s4">Animated captions</label>
-  </div>
-</div>
+    <h5>1. Package</h5>
+    <div class="dash-grid">
+      <div class="dash-card">
+        <label><input type="radio" name="pkg" value="starter" checked> Starter – ₱1,500 (15-30 s, 1 format, 1 revision)</label><br>
+        <label><input type="radio" name="pkg" value="pro"> Pro – ₱5,000 (≤60 s, script + voice, 3 revisions)</label><br>
+        <label><input type="radio" name="pkg" value="scale"> Scale – ₱10,000 (4 videos, priority, performance bundle)</label>
+      </div>
+    </div>
 
-<h2>3. Platform / aspect ratio</h2>
-<div class="card">
-  <div class="check-group">
-    <input type="checkbox" id="p1" value="9:16" checked><label for="p1">9:16 (Stories/Reels/TikTok)</label>
-    <input type="checkbox" id="p2" value="1:1"><label for="p2">1:1 (Instagram feed)</label>
-    <input type="checkbox" id="p3" value="16:9"><label for="p3">16:9 (YouTube)</label>
-  </div>
-</div>
+    <h5>2. Video style</h5>
+    <div class="dash-card">
+      <div class="check-group">
+        <input type="radio" name="style" id="s1" value="u_gc" checked><label for="s1">UGC / testimonial</label>
+        <input type="radio" name="style" id="s2" value="motion"><label for="s2">Motion graphics</label>
+        <input type="radio" name="style" id="s3" value="cinematic"><label for="s3">Cinematic</label>
+        <input type="radio" name="style" id="s4" value="animated"><label for="s4">Animated captions</label>
+      </div>
+    </div>
 
-<h2>4. Voice-over language & accent</h2>
-<div class="card">
-  <select id="voice">
-    <option value="en-us">English – US</option>
-    <option value="en-gb">English – UK</option>
-    <option value="fil">Filipino</option>
-  </select>
-</div>
+    <h5>3. Platform / aspect ratio</h5>
+    <div class="dash-card">
+      <div class="check-group">
+        <input type="checkbox" id="p1" name="ratio" value="9:16" checked><label for="p1">9:16 (Stories/Reels/TikTok)</label>
+        <input type="checkbox" id="p2" name="ratio" value="1:1"><label for="p2">1:1 (Instagram feed)</label>
+        <input type="checkbox" id="p3" name="ratio" value="16:9"><label for="p3">16:9 (YouTube)</label>
+      </div>
+    </div>
 
-<h2>5. Script & assets</h2>
-<div class="card">
-  <label>Script (paste here or let us write)</label>
-  <textarea id="script" placeholder="Optional: include your draft script, key messages, CTA..."></textarea>
+    <h5>4. Voice-over language & accent</h5>
+    <div class="dash-card">
+      <select name="voice" id="voice">
+        <option value="en-us">English – US</option>
+        <option value="en-gb">English – UK</option>
+        <option value="fil">Filipino</option>
+      </select>
+    </div>
 
-  <label style="margin-top:12px">Upload logo / images / footage (Google Drive or Dropbox link)</label>
-  <input type="url" id="assets" placeholder="https://...">
-</div>
+    <h5>5. Script & assets</h5>
+    <div class="dash-card">
+      <label>Script (paste here or let us write)</label>
+      <textarea name="script" id="script" placeholder="Optional: include your draft script, key messages, CTA..."></textarea>
+      <label style="margin-top:12px">Upload logo / images / footage (Google Drive or Dropbox link)</label>
+      <input type="url" name="assets" id="assets" placeholder="https://...">
+    </div>
 
-<h2>6. Call-to-action text</h2>
-<div class="card">
-  <input type="text" id="cta" placeholder="Shop now | Book today | Download app …">
-</div>
+    <h5>6. Call-to-action text</h5>
+    <div class="dash-card">
+      <input type="text" name="cta" id="cta" placeholder="Shop now | Book today | Download app …">
+    </div>
 
-<div class="card" style="margin-top:30px">
-  <div class="summary" id="summary"></div>
-  <div class="price-tag" id="total">Total: ₱1,500</div>
-  <button style="width:100%;margin-top:14px" id="submitBtn">Submit order</button>
-</div>
+    <div class="dash-card" style="margin-top:30px">
+      <div id="summary" class="summary"></div>
+      <div class="price-tag" id="total">Total: ₱1,500</div>
+      <button type="submit" style="width:100%;margin-top:14px">Submit order</button>
+    </div>
+  </form>
 
-<script>
-  /* ---- simple price map ---- */
-  const prices={starter:1500, pro:5000, scale:10000};
-  const radios=document.querySelectorAll('input[type=radio][name=pkg]');
-  const summaryEl=document.getElementById('summary');
-  const totalEl=document.getElementById('total');
+  <!-- bottom nav -->
+  <nav class="bottom-nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-item"><svg viewBox="0 0 24 24"><path d="M3 11.5L12 4l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1V11.5z" fill="currentColor"/></svg><div>Home</div></a>
+      <a href="services.html" class="nav-item"><svg viewBox="0 0 24 24"><path d="M6 2h12v4H6zM3 8h18v11a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V8z" fill="currentColor"/></svg><div>Services</div></a>
+      <a href="cases.html" class="nav-item"><svg viewBox="0 0 24 24"><path d="M12 5a7 7 0 1 0 0 14 7 7 0 0 0 0-14zM6 20a6 6 0 0 1 12 0H6z" fill="currentColor"/></svg><div>Cases</div></a>
+      <a href="contact.html" class="nav-item"><svg viewBox="0 0 24 24"><path d="M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10zM4 20a8 8 0 0 1 16 0H4z" fill="currentColor"/></svg><div>Contact</div></a>
+    </div>
+  </nav>
 
-  function buildOrder(){
-    const order={
-      package : document.querySelector('input[name=pkg]:checked').value,
-      style   : document.querySelector('input[name=style]:checked').value,
-      ratios  : [...document.querySelectorAll('input[type=checkbox]:checked')].map(i=>i.value),
-      voice   : document.getElementById('voice').value,
-      script  : document.getElementById('script').value.trim(),
-      assets  : document.getElementById('assets').value.trim(),
-      cta     : document.getElementById('cta').value.trim()
-    };
-    summaryEl.textContent=JSON.stringify(order,null,2);
-    totalEl.textContent='Total: ₱'+prices[order.package].toLocaleString();
-    return order;
-  }
-  radios.forEach(r=>r.addEventListener('change',buildOrder));
-  document.querySelectorAll('input,select,textarea').forEach(el=>el.addEventListener('input',buildOrder));
+  <script>
+    /* ---------- slideshow ---------- */
+    const slides=document.querySelectorAll('.slide');
+    let idx=0;
+    setInterval(()=>{
+      slides[idx].classList.remove('active');
+      idx=(idx+1)%slides.length;
+      slides[idx].classList.add('active');
+    },5000);
 
-  /* ---- submit ---- */
-  document.getElementById('submitBtn').addEventListener('click',()=>{
-    const payload=buildOrder();
-    fetch('/api/order',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)})
-      .then(r=>r.ok? r.json() : Promise.reject(r))
-      .then(res=>alert('Order received! Reference: '+res.ref))
-      .catch(err=>alert('Sorry, please try again later.'));
-  });
+    /* ---------- price calc ---------- */
+    const prices={starter:1500,pro:5000,scale:10000};
+    const form=document.getElementById('orderForm');
+    const summaryEl=document.getElementById('summary');
+    const totalEl=document.getElementById('total');
 
-  buildOrder(); // first paint
-</script>
+    function buildOrder(){
+      const pkg   = form.pkg.value;
+      const style = form.style.value;
+      const ratios= [...form.ratio].filter(cb=>cb.checked).map(cb=>cb.value);
+      const voice = form.voice.value;
+      const script= form.script.value.trim();
+      const assets= form.assets.value.trim();
+      const cta   = form.cta.value.trim();
+
+      const order={pkg,style,ratios,voice,script,assets,cta};
+      summaryEl.textContent=JSON.stringify(order,null,2);
+      totalEl.textContent='Total: ₱'+prices[pkg].toLocaleString();
+    }
+    form.addEventListener('input',buildOrder);
+    buildOrder();
+  </script>
 </body>
 </html>
