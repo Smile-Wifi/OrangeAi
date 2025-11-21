@@ -1,73 +1,105 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Contact — ORANGE Ai</title>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css">
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Contact — ORANGE Ai</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- ======  HERO-SLIDESHOW CSS  ====== -->
+  <style>
+    *{box-sizing:border-box;margin:0;font-family:Inter,system-ui;}
+    body{background:var(--bg);color:#fff;line-height:1.4;padding:20px;}
+
+    /* ---- slideshow ---- */
+    .hero{position:relative;height:260px;overflow:hidden;border-radius:14px;margin-bottom:20px;}
+    .slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity 1.2s ease;}
+    .slide.active{opacity:1;}
+    /* dark overlay so white text pops */
+    .slide::after{content:'';position:absolute;inset:0;background:linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45));}
+    .hero-content{position:relative;z-index:2;height:100%;display:flex;flex-direction:column;justify-content:space-between;padding:28px;}
+    .toprow{display:flex;align-items:center;justify-content:space-between;}
+    .logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:18px;}
+    .logo img{height:32px;border-radius:6px;}
+    .greeting h1{font-size:28px;font-weight:700;margin-bottom:6px;}
+    .greeting p{font-size:15px;color:rgba(255,255,255,.85);}
+    .sign-btn{font-size:14px;color:rgba(255,255,255,.9);text-decoration:none;padding:6px 12px;border:1px solid rgba(255,255,255,.25);border-radius:8px;}
+    .sign-btn:hover{background:rgba(255,255,255,.1);}
+
+    /* ---- form ---- */
+    form{margin:auto;max-width:480px;background:var(--card);border-radius:12px;padding:24px;}
+    label{font-size:14px;color:#0b1220;display:block;margin-bottom:6px;}
+    input,textarea{width:100%;padding:10px 12px;border:none;border-radius:8px;background:#f0e9e4;color:#c9a7a7;font-size:14px;margin-bottom:14px;}
+    textarea{resize:vertical;min-height:80px;}
+    button{width:100%;padding:12px;border:none;border-radius:10px;background:var(--accent);color:#fff;font-weight:600;font-size:16px;cursor:pointer;}
+  </style>
 </head>
 
 <body>
-
-<div class="app" style="--hero-image: url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=60');">
-
+<div class="app">
+  <!-- ======  HERO SLIDESHOW  ====== -->
   <header class="hero">
-    <div class="toprow">
-      <div class="logo">
-        <img src="logo.png" width="34" height="34" style="border-radius:8px;">
-        <span style="font-size:14px;color:rgba(255,255,255,0.95);font-weight:700">ORANGE Ai</span>
-      </div>
-      <a href="signin.html" class="sign-btn">Sign in</a>
-    </div>
+    <div class="slide active" style="background-image:url('https://img.lazcdn.com/g/ff/kf/Sf3bf27aad021429091b7548e305cbc9fk.jpg_720x720q80.jpg');"></div>
+  <div class="slide active" style="background-image:url('https://medsgo.ph/images/detailed/27/012479__47045.1594182768.jpg');"></div>
+  <div class="slide" style="background-image:url('https://ph-live-01.slatic.net/p/9ee43995cc62d3a7b2d0782d4489f9d3.jpg');"></div>
+  <div class="slide" style="background-image:url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8t7cyzqQDK0PgST_lOqkWacelzy1HxNJZ3g&s');"></div>
 
-    <div class="greeting">
-      <h1>Contact Us</h1>
-      <p>Have a project in mind? Let's talk.</p>
+    <!-- text overlay -->
+    <div class="hero-content">
+      <div class="toprow">
+        <div class="logo">
+          <img src="logo.png" width="34" height="34" style="border-radius:8px;">
+          <span style="font-size:14px;color:rgba(255,255,255,.95);font-weight:700">ORANGE Ai</span>
+        </div>
+        <a href="index.html" class="sign-btn">← Home</a>
+      </div>
+      <div class="greeting">
+        <h1>Affordable Video Ads</h1>
+        <p>That perform like agency-level productions.</p>
+      </div>
     </div>
   </header>
 
-  <!-- FREE FormSubmit FORM -->
-  <div style="padding: 20px;">
-    <form action="https://formsubmit.co/awdtph@gmail.com" method="POST">
-      <input type="hidden" name="_subject" value="New ORANGE Ai message">
-      <input type="hidden" name="_captcha" value="false">
-      <!-- change or delete _next if you don’t have thanks.html yet -->
-      <input type="hidden" name="_next" value="index.html">
+  <!-- ======  CONTACT FORM  ====== -->
+  <form action="https://formsubmit.co/awdtph@gmail.com" method="POST">
+    <input type="hidden" name="_subject" value="New ORANGE Ai message">
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_next" value="index.html">
 
-      <input type="text" name="name" placeholder="Your Name" required style="width:100%;padding:10px;margin-bottom:10px;border-radius:8px;border:1px solid #ccc;">
-      <input type="email" name="email" placeholder="Your Email" required style="width:100%;padding:10px;margin-bottom:10px;border-radius:8px;border:1px solid #ccc;">
-      <textarea name="message" placeholder="Your Message" required style="width:100%;padding:10px;margin-bottom:10px;border-radius:8px;border:1px solid #ccc;height:100px;"></textarea>
+    <label>Your Name</label>
+    <input type="text" name="name" placeholder="Juan Dela Cruz" required>
 
-      <button type="submit" style="background:#ff7a00;color:white;padding:12px 22px;border-radius:10px;font-weight:600;border:none;width:100%;">Send Message</button>
-    </form>
-  </div>
+    <label>Your Email</label>
+    <input type="email" name="email" placeholder="you@example.com" required>
 
-  <!-- NAV -->
-<nav class="bottom-nav">
-  <div class="nav-inner">
-    <a href="index.html" class="nav-item active">
-      <svg viewBox="0 0 24 24"><path d="M3 11.5L12 4l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1V11.5z" fill="currentColor"/></svg>
-      <div>Home</div>
-    </a>
+    <label>Message</label>
+    <textarea name="message" placeholder="How can we help?"></textarea>
 
-    <a href="services.html" class="nav-item">
-      <svg viewBox="0 0 24 24"><path d="M6 2h12v4H6zM3 8h18v11a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V8z" fill="currentColor"/></svg>
-      <div>Services</div>
-    </a>
+    <button type="submit">Send Message</button>
+  </form>
 
-    <a href="cases.html" class="nav-item">
-      <svg viewBox="0 0 24 24"><path d="M12 5a7 7 0 1 0 0 14 7 7 0 0 0 0-14zM6 20a6 6 0 0 1 12 0H6z" fill="currentColor"/></svg>
-      <div>Cases</div>
-    </a>
+  <!-- ======  BOTTOM NAV  ====== -->
+  <nav class="bottom-nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-item active"><svg viewBox="0 0 24 24"><path d="M3 11.5L12 4l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1V11.5z" fill="currentColor"/></svg><div>Home</div></a>
+      <a href="services.html" class="nav-item"><svg viewBox="0 0 24 24"><path d="M6 2h12v4H6zM3 8h18v11a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V8z" fill="currentColor"/></svg><div>Services</div></a>
+      <a href="cases.html" class="nav-item"><svg viewBox="0 0 24 24"><path d="M12 5a7 7 0 1 0 0 14 7 7 0 0 0 0-14zM6 20a6 6 0 0 1 12 0H6z" fill="currentColor"/></svg><div>Cases</div></a>
+      <a href="contact.html" class="nav-item4"><svg viewBox="0 0 24 24"><path d="M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10zM4 20a8 8 0 0 1 16 0H4z" fill="currentColor"/></svg><div>Contact</div></a>
+    </div>
+  </nav>
+</div>
 
-    <a href="contact.html" class="nav-item">
-      <svg viewBox="0 0 24 24"><path d="M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10zM4 20a8 8 0 0 1 16 0H4z" fill="currentColor"/></svg>
-      <div>Contact</div>
-    </a>
-  </div>
-</nav>
-
+<script>
+  /* ======  auto-advancing slideshow  ====== */
+  const slides=document.querySelectorAll('.slide');
+  let idx=0;
+  setInterval(()=>{
+    slides[idx].classList.remove('active');
+    idx=(idx+1)%slides.length;
+    slides[idx].classList.add('active');
+  },5000);
+</script>
 </body>
 </html>
